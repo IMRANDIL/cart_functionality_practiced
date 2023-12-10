@@ -8,7 +8,8 @@ const CartModal = ({ cart, closeModal, setCart }) => {
     setCart(updatedCart);
   };
 
-
+// Calculate grand total
+const grandTotal = cart.reduce((total, item) => total + item.totalPrice, 0);
     return (
         <div className="modal-overlay">
         <div className="modal">
@@ -20,6 +21,8 @@ const CartModal = ({ cart, closeModal, setCart }) => {
               </li>
             ))}
           </ul>
+           {/* Display grand total */}
+        <div className="grand-total">Grand Total: ${grandTotal}</div>
           <button onClick={closeModal}>Close</button>
         </div>
       </div>
