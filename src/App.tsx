@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
+import CartModal from './components/CartModal';
 
 function App() {
  
@@ -17,18 +18,22 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addToCart = (product) => {
-    const existingItemIndex = cart.findIndex((item) => item.id === product.id);
-
-    if (existingItemIndex !== -1) {
-      // If item already exists, update quantity and amount
-      const updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += 1;
-      setCart(updatedCart);
+    const updatedCart = [...cart];
+    const existingItem = updatedCart.find((item) => item.id === product.id);
+  
+    if (existingItem) {
+      // If item already exists, update quantity and total price
+      existingItem.quantity += 1;
+      existingItem.totalPrice = existingItem.quantity * existingItem.price;
     } else {
-      // If item doesn't exist, add it to the cart
-      setCart([...cart, { ...product, quantity: 1 }]);
+      // If item doesn't exist, add it to the cart with initialized totalPrice
+      updatedCart.push({ ...product, quantity: 1, totalPrice: product.price });
     }
+  
+    setCart(updatedCart);
   };
+  
+  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -41,11 +46,13 @@ function App() {
   return (
     <>
       <div>
-      {/* Render ProductList component */}
+      <div className="cart-icon" onClick={openModal}>
+        🛒 {cart.reduce((total, item) => total + item.quantity, 0)}
+      </div>
+
       <ProductList products={products} addToCart={addToCart} />
 
-      {/* Render Cart component */}
-      <Cart cart={cart} removeFromCart={removeFromCart} />
+      {isModalOpen && <CartModal cart={cart} closeModal={closeModal} setCart={setCart} />}
     </div>
     </>
   )
