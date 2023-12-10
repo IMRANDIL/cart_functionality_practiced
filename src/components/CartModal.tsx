@@ -1,9 +1,11 @@
+import { useEffect, useRef } from "react";
+
 const CartModal = ({ cart, closeModal, setCart }) => {
 
+  const removeFromCart = (event, product) => {
 
-
-  // Function to remove a product from the cart
-  const removeFromCart = (product) => {
+     // Stop the propagation of the click event
+  event.stopPropagation();
     const updatedCart = cart.filter((item) => item.id !== product.id);
     setCart(updatedCart);
   };
@@ -11,12 +13,12 @@ const CartModal = ({ cart, closeModal, setCart }) => {
 // Calculate grand total
 const grandTotal = cart.reduce((total, item) => total + item.totalPrice, 0);
     return (
-        <div className="modal-overlay">
+        <div className="modal-overlay" onClick={closeModal}>
         <div className="modal">
           <h2>Shopping Cart</h2>
           <ul>
             {cart.map((item) => (
-              <li key={item.id} onClick={()=>removeFromCart(item)}>
+              <li key={item.id} onClick={(event)=>removeFromCart(event, item)}>
                 {item.name} - ${item.totalPrice} - Quantity: {item.quantity}
               </li>
             ))}
