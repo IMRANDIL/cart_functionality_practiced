@@ -43,8 +43,8 @@ body {
 
 .cart-count {
   position: absolute;
-  top: 0;
-  right: 107px;
+  top: -5px;
+  right: -18px;
   background-color: red;
   color: white;
   border-radius: 50%;

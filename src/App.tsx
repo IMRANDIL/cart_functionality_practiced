@@ -45,13 +45,15 @@ function App() {
 
   return (
     <>
-      <div>
-      <div className="cart-icon" onClick={openModal}>
+      <div style={{
+        textAlign:'center'
+      }}>
+      <span className="cart-icon" onClick={openModal}>
           🛒
           <span className="cart-count">
             {cart.reduce((total, item) => total + item.quantity, 0)}
           </span>
-        </div>
+        </span>
 
       <ProductList products={products} addToCart={addToCart} />
 
