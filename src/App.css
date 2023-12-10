@@ -44,7 +44,7 @@ body {
 .cart-count {
   position: absolute;
   top: 0;
-  right: 80;
+  right: 107px;
   background-color: red;
   color: white;
   border-radius: 50%;
@@ -63,6 +63,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 15px;
 }
 
 .product-list-title {
@@ -89,6 +90,7 @@ body {
   display: flex; /* Added to allow nested flex items within product-info */
   justify-content: space-between; /* Adjusted to ensure space between nested items */
   align-items: center;
+  margin-right: 20px;
 }
 
 .product-name {
