@@ -20,3 +20,34 @@
 }
 
 /* Add any additional styling as needed */
+
+/* App.css */
+
+/* App.css */
+
+body {
+  margin: 0;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 100vh;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 20;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+

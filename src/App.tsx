@@ -47,8 +47,11 @@ function App() {
     <>
       <div>
       <div className="cart-icon" onClick={openModal}>
-        🛒 {cart.reduce((total, item) => total + item.quantity, 0)}
-      </div>
+          🛒
+          <div className="cart-count">
+            {cart.reduce((total, item) => total + item.quantity, 0)}
+          </div>
+        </div>
 
       <ProductList products={products} addToCart={addToCart} />
 
