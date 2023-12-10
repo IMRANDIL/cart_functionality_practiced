@@ -37,17 +37,83 @@ body {
   position: relative;
   cursor: pointer;
   text-align: center;
+  font-size: 24px;
   
 }
 
 .cart-count {
   position: absolute;
   top: 0;
-  right: 20;
+  right: 80;
   background-color: red;
   color: white;
   border-radius: 50%;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 10px;
+}
+
+
+
+
+/* Add these styles to your CSS file */
+
+/* Update these styles in your CSS file */
+
+.product-list-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-list-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex; /* Added to allow nested flex items within product-info */
+  justify-content: space-between; /* Adjusted to ensure space between nested items */
+  align-items: center;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-price {
+  color: #888;
+}
+
+.add-to-cart-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+  background-color: #45a049;
 }
 

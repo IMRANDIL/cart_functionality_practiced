@@ -48,9 +48,9 @@ function App() {
       <div>
       <div className="cart-icon" onClick={openModal}>
           🛒
-          <div className="cart-count">
+          <span className="cart-count">
             {cart.reduce((total, item) => total + item.quantity, 0)}
-          </div>
+          </span>
         </div>
 
       <ProductList products={products} addToCart={addToCart} />
