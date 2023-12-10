@@ -16,7 +16,7 @@ const CartModal = ({ cart, closeModal, setCart }) => {
           <ul>
             {cart.map((item) => (
               <li key={item.id} onClick={()=>removeFromCart(item)}>
-                {item.name} - ${item.price} - Quantity: {item.quantity}
+                {item.name} - ${item.totalPrice} - Quantity: {item.quantity}
               </li>
             ))}
           </ul>
